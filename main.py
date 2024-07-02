@@ -1,5 +1,6 @@
 import requests
 import selectorlib
+from send_email import send_email
 
 URL = 'http://programmer100.pythonanywhere.com/tours/'
 
@@ -21,11 +22,6 @@ def extract(source):
     value = extracted_data.get('tours')
 
     return value
-
-
-def send_email():
-    print('Send email !')
-
 
 # 存事件
 def store(extracted):
@@ -49,4 +45,4 @@ if __name__ == '__main__':
         # 有事件 and 不重复，才会存数据，发邮件
         if extracted not in content:
             store(extracted)
-            send_email()
+            send_email(extracted)
