@@ -1,6 +1,9 @@
+import time
+
 import requests
 import selectorlib
 from send_email import send_email
+import time
 
 URL = 'http://programmer100.pythonanywhere.com/tours/'
 
@@ -36,13 +39,15 @@ def read_store_data():
 
 
 if __name__ == '__main__':
-    scraped = scrape(URL)
-    extracted = extract(scraped)
-    print(extracted)
+    while True:
+        scraped = scrape(URL)
+        extracted = extract(scraped)
+        print(extracted)
 
-    content = read_store_data()
-    if extracted != 'No upcoming tours':
-        # 有事件 and 不重复，才会存数据，发邮件
-        if extracted not in content:
-            store(extracted)
-            send_email(extracted)
+        content = read_store_data()
+        if extracted != 'No upcoming tours':
+            # 有事件 and 不重复，才会存数据，发邮件
+            if extracted not in content:
+                store(extracted)
+                send_email(extracted)
+        time.sleep(2)
