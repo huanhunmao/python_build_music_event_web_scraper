@@ -15,12 +15,12 @@ cursor = connection.cursor()
 # print(rows) # [('Lions', '2088.10.15'), ('Monkey', '2088.10.15')]
 
 # Insert
-new_cows = [
-    ("PPX", "PPX City", "2088.10.29"),
-    ("KK", "KK City", "2088.06.06"),
-]
-cursor.executemany("INSERT INTO events VALUES(?,?,?)", new_cows)
-connection.commit()
+# new_cows = [
+#     ("PPX", "PPX City", "2088.10.29"),
+#     ("KK", "KK City", "2088.06.06"),
+# ]
+# cursor.executemany("INSERT INTO events VALUES(?,?,?)", new_cows)
+# connection.commit()
 
 
  # Query all data
